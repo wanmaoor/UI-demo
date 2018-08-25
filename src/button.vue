@@ -13,7 +13,10 @@
       icon: {},
       iconPosition: {
         type: String,
-        default: 'left'//如果用户没有设置icon属性,则默认为left
+        default: 'left',//如果用户没有设置icon属性,则默认为left
+        validator(value){//属性检查器
+          return value !== 'left' && value !== 'right' ? false : true
+        }
       }
     }
   }
