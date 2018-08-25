@@ -1,6 +1,7 @@
 <template>
    <button class="g-button" :class="{[`icon-${iconPosition}`]: true}"><!-- 根据iconPosition传进来的值就是它的类 -->
     <g-icon v-if="icon" :name="icon"></g-icon>
+    <g-icon class="loading" name="loading"></g-icon>
     <div class="content">
       <slot></slot><!-- 插槽 slot不能加属性-->
     </div> 
@@ -22,6 +23,14 @@
   }
 </script>
 <style lang="scss">
+  @keyframes spin {
+    from {
+      transform: rotate(0deg)
+    }
+    to {
+      transform: rotate(360deg)
+    }
+  }
     .g-button{
       height: var(--button-height);
       font-size: var(--font-size);
@@ -45,7 +54,7 @@
     }
     > .icon{
       order: 1;
-      margin-right: .3em;
+      margin-right: .5em;
     }
     > .content{
       order: 2;
@@ -53,12 +62,15 @@
     &.icon-right{
       > .icon{
         order: 2;
-        margin-left: .3em;
+        margin-left: .5em;
         margin-right: 0;
       }
       > .content{
         order: 1;
       }
+    }
+    .loading{
+      animation: spin 2s infinite linear
     }
   }
     
