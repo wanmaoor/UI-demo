@@ -5,7 +5,9 @@
 </template>
 <script>
 export default {
-  
+  mounted(){//mouted是当此组件在页面中出现时执行的函数
+    console.log(this.$children)
+  }
 }
 </script>
 <style lang="scss">
@@ -14,7 +16,9 @@ export default {
     vertical-align: middle;
     > .g-button{
       border-radius: 0;
-      margin-left: -1px;
+      &:not(:first-child){
+        margin-left: -1px;  
+      }
       &:first-child{
         border-top-left-radius: var(--border-radius);
         border-bottom-left-radius: var(--border-radius);
