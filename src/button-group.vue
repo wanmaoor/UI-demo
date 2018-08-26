@@ -6,7 +6,7 @@
 <script>
 export default {
   mounted(){//mouted是当此组件在页面中出现时执行的函数
-    console.log(this.$children)
+    //console.log(this.$children)
   }
 }
 </script>
